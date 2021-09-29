@@ -30,35 +30,28 @@
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="descricao">Descrição</label>
-                    <textarea class="form-control" rows="4" th:field="*{descricao}"></textarea>
-                  </div>
-                </div>
-              </div>
+              
 
               <div class="row">
-                <div class="col-md-6 col-sm-12">
+              <!--   <div class="col-md-6 col-sm-12">
                   <div class="form-group">
                     <label>Cliente</label>
                     <select th:field="*{cliente}" class="form-control select2bs4" style="width: 100%;">
                       <option th:each="cliente : ${clientes}" th:text="${cliente.nome}" th:value="${cliente.id}"></option>
                     </select>
                   </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
+                </div> -->
+                <!-- <div class="col-md-6 col-sm-12">
                   <div class="form-group">
                     <label>Líder do Projeto</label>
                     <select th:field="*{lider}" class="form-control select2bs4" style="width: 100%;">
                       <option th:each="lider : ${lideres}" th:text="${lider.nome}" th:value="${lider.id}"></option>
                     </select>
                   </div>
-                </div>
+                </div> -->
               </div>
 
-              <div class="row">
+            <!--   <div class="row">
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
                     <label for="dataInicio">Iníado em</label>
@@ -71,34 +64,133 @@
                     <input type="date" class="form-control" th:field="*{dataFim}">
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="row">
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
-                    <label for="orcamentoEstimado">Orçamento estimado</label>
-                    <input type="text" class="form-control" th:field="*{orcamentoEstimado}">
+                    <label for="tipoDoImovel">Tipo do imóvel</label>
+                    <input type="text" class="form-control" th:field="*{tipoDoImovel}">
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
-                    <label for="totalGasto">Total gasto</label>
-                    <input type="text" class="form-control" th:field="*{totalGasto}">
+                    <label for="status">Status</label>
+                    <input type="text" class="form-control" th:field="*{status}">
                   </div>
                 </div>
+              </div>
+
+              <div class="row">
+
+
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="valorDoImovel">Valor do imóvel</label>
+                    <input type="text" class="form-control" th:field="*{valorDoImovel}">
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="comisssao">Comissão</label>
+                    <input type="text" class="form-control" th:field="*{comisssao}">
+                  </div>
+                </div>
+
               </div>
 
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
-                    <label>Equipe</label>
-                    <select th:field="*{equipe}" multiple data-placeholder="Selecione a equipe" class="form-control select2bs4" style="width: 100%;">
-                      <option th:each="funcionario : ${funcionarios}" th:text="${funcionario.nome + ' - ' + funcionario.cargo.nome}" th:value="${funcionario.id}"></option>
+                    <label>Clientes interessados nesse imóvel</label>
+                    <select th:field="*{clientes}" multiple data-placeholder="Selecione os clientes" class="form-control select2bs4" style="width: 100%;">
+                      <option th:each="cliente : ${clientes}" th:text="${cliente.nome}" th:value="${cliente.id}"></option>
                     </select>
                   </div>
                 </div>
               </div>
+
+              <div class="row">
+
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="construtora">Construtora</label>
+                    <input type="text" class="form-control" th:field="*{construtora}">
+                  </div>
+                </div>
+
+              </div>
+
+            
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea class="form-control" rows="4" th:field="*{descricao}"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <legend>Endereço</legend>
+        
+              <input type="hidden" th:field="*{endereco.id}">
+        
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="endereco.cep">CEP</label>
+                    <input type="text" class="form-control" placeholder="61626-365" th:field="*{endereco.cep}">
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label>Estado</label>
+                    <select th:field="*{endereco.uf}" class="form-control select2bs4" style="width: 100%;">
+                      <option th:each="uf : ${ufs}" th:text="${uf}" th:value="${uf}">SP</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="endereco.cidade">Cidade</label>
+                    <input type="text" class="form-control" placeholder="Caucaia" th:field="*{endereco.cidade}">
+                  </div>
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="endereco.bairro">Bairro</label>
+                    <input type="text" class="form-control" placeholder="Pacheco" th:field="*{endereco.bairro}">
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="endereco.logradouro">Logradouro</label>
+                    <input type="text" class="form-control" placeholder="Rua Santo Antônio" th:field="*{endereco.logradouro}">
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="endereco.numero">Número</label>
+                    <input type="text" class="form-control" placeholder="283" th:field="*{endereco.numero}">
+                  </div>
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="endereco.complemento">Complemento</label>
+                    <input type="text" class="form-control" placeholder="Quadra D" th:field="*{endereco.complemento}">
+                  </div>
+                </div>
+              </div>
+
             </div>
+
 
             <!-- /.card-body -->
 
@@ -109,6 +201,9 @@
         </div>
       </div>
     </div>
+
+  
+
   </main>
 
   <th:block th:fragment="scripts">
