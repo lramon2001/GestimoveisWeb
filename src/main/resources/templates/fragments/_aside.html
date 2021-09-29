@@ -28,14 +28,22 @@
             </li>
             <li class="nav-item">
               <a th:href="@{/clientes}" class="nav-link">
-                <i class="fas fa-table nav-icon"></i>
+                <i class="fas fa-list-ul nav-icon"></i>
                 <p>Listar</p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a th:href="@{/clientes/inativos}" class="nav-link">
+                <i class="fas fa-exclamation-triangle nav-icon"></i>
+                <p>Verificar Inatividade</p>
+              </a>
+            </li>
+
           </ul>
         </li>
         
-      <!--   <li class="nav-item">
+     <!--   <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user-tie"></i>
             <p>
@@ -57,7 +65,7 @@
               </a>
             </li>
           </ul>
-        </li> -->
+        </li>  -->
         
         <!-- <li class="nav-item">
           <a href="#" class="nav-link">
@@ -100,7 +108,7 @@
             </li>
             <li class="nav-item">
               <a th:href="@{/projetos/}" class="nav-link">
-                <i class="fas fa-table nav-icon"></i>
+                <i class="fas fa-list-ul nav-icon"></i>
                 <p>Listar</p>
               </a>
             </li>

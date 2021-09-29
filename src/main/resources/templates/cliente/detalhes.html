@@ -113,15 +113,15 @@
                 <!-- The timeline -->
                 <div class="timeline">
                   <!-- timeline item -->
-                 <!--  <div th:each="projeto : ${cliente.projetos}">
-                    <i class="fas fa-project-diagram bg-primary"></i>
+                  <div th:each="projeto : ${cliente.empreendimentos}">
+                    <i class="fas fa-building bg-primary"></i>
 
                     <div class="timeline-item">
                       <span class="time">
-                        <i class="far fa-clock"></i> <span th:text="${#temporals.format(projeto.dataInicio)}"></span>
+                        <i class="fas fa-check-square mr-1"></i> <span th:text="${projeto.status}"></span>
                       </span>
 
-                      <h3 class="timeline-header" th:text="${projeto.nome}"></h3>
+                   <h3 class="timeline-header" th:text="${projeto.nome}"></h3>
 
                       <div class="timeline-body" th:text="${projeto.descricao}">
                         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
@@ -133,7 +133,7 @@
                         <a th:href="@{/projetos/{id} (id=${projeto.id})}" class="btn btn-primary btn-sm">Detalhes</a>
                       </div>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               </div><!-- /.card-body -->
             </div>

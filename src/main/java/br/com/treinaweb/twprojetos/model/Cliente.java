@@ -1,6 +1,7 @@
 package br.com.treinaweb.twprojetos.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -64,6 +66,9 @@ public class Cliente {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id_fk", nullable = false)
     private Endereço endereco;
+
+    @ManyToMany(mappedBy = "clientes")
+    private List<Empreendimento> empreendimentos; 
 
     public Long getId() {
         return id;
@@ -184,6 +189,16 @@ public class Cliente {
 
     public void setEndereco(Endereço endereco) {
         this.endereco = endereco;
+    }
+
+    
+
+    public List<Empreendimento> getEmpreendimentos() {
+        return empreendimentos;
+    }
+
+    public void setEmpreendimentos(List<Empreendimento> empreendimentos) {
+        this.empreendimentos = empreendimentos;
     }
 
     @Override
