@@ -115,8 +115,11 @@
               
                 <div class="col-md-6 col-sm-12">
                   <div class="form-group">
-                    <label for="status">Status</label>
-                    <input type="text" class="form-control" placeholder="Análise de documentação" th:field="*{status}">
+                    <label>Status</label>
+                     <select th:field="*{status}" class="form-control select2bs4" style="width: 100%;">
+ 
+                    <option th:each="status : ${statuses}" th:text="${status}" th:value="${status}">APROVADO</option>
+                    </select>
                   </div>
                 </div>
                 

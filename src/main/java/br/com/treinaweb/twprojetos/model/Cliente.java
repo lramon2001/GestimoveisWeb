@@ -2,10 +2,12 @@ package br.com.treinaweb.twprojetos.model;
 
 import java.time.LocalDate;
 import java.util.List;
-
+import br.com.treinaweb.twprojetos.model.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,7 +51,8 @@ public class Cliente {
     private String genero;
 
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private StatusCliente status;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -142,13 +145,7 @@ public class Cliente {
         this.genero = genero;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  
 
     public String getEmail() {
         return email;
@@ -182,6 +179,14 @@ public class Cliente {
         this.observacoes = observacoes;
     }
 
+   
+    public StatusCliente getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusCliente status) {
+        this.status = status;
+    }
 
     public Endereço getEndereco() {
         return endereco;
@@ -209,6 +214,8 @@ public class Cliente {
         result = prime * result + ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
         result = prime * result + ((dependentes == null) ? 0 : dependentes.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
+        result = prime * result + ((empreendimentos == null) ? 0 : empreendimentos.hashCode());
+        result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
         result = prime * result + ((estadoCivil == null) ? 0 : estadoCivil.hashCode());
         result = prime * result + ((fgts == null) ? 0 : fgts.hashCode());
         result = prime * result + ((genero == null) ? 0 : genero.hashCode());
@@ -251,6 +258,16 @@ public class Cliente {
                 return false;
         } else if (!email.equals(other.email))
             return false;
+        if (empreendimentos == null) {
+            if (other.empreendimentos != null)
+                return false;
+        } else if (!empreendimentos.equals(other.empreendimentos))
+            return false;
+        if (endereco == null) {
+            if (other.endereco != null)
+                return false;
+        } else if (!endereco.equals(other.endereco))
+            return false;
         if (estadoCivil == null) {
             if (other.estadoCivil != null)
                 return false;
@@ -291,10 +308,7 @@ public class Cliente {
                 return false;
         } else if (!rg.equals(other.rg))
             return false;
-        if (status == null) {
-            if (other.status != null)
-                return false;
-        } else if (!status.equals(other.status))
+        if (status != other.status)
             return false;
         if (telefone == null) {
             if (other.telefone != null)
@@ -307,11 +321,13 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente [cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", dependentes=" + dependentes
-                + ", email=" + email + ", estadoCivil=" + estadoCivil + ", fgts=" + fgts + ", genero=" + genero
-                + ", id=" + id + ", nome=" + nome + ", observacoes=" + observacoes + ", renda=" + renda + ", rg=" + rg
-                + ", status=" + status + ", telefone=" + telefone + "]";
+                + ", email=" + email + ", empreendimentos=" + empreendimentos + ", endereco=" + endereco
+                + ", estadoCivil=" + estadoCivil + ", fgts=" + fgts + ", genero=" + genero + ", id=" + id + ", nome="
+                + nome + ", observacoes=" + observacoes + ", renda=" + renda + ", rg=" + rg + ", status=" + status
+                + ", telefone=" + telefone + "]";
     }
-    
+
+   
     
     
 }
