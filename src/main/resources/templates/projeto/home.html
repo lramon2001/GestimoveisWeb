@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
 <head>
-  <title>Lista de Projetos</title>
+  <title>Lista de Empreendimentos</title>
 </head>
 <body>
   <main>
@@ -13,23 +13,22 @@
             <table class="table table-hover text-nowrap">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Nome</th>
                   <th>Construtora</th>
                   <th>Tipo do imóvel</th>
                   <th>Status</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr th:each="projeto : ${projetos}">
-                  <td th:text="${projeto.id}">183</td>
-                  <td th:text="${projeto.nome}">AvMakers Landing Page</td>
-                 <!--  <td th:text="${#temporals.format(projeto.dataInicio)}">01/01/2020</td> -->
-                 <!--  <td th:text="${projeto.dataFim == null ? '-' : #temporals.format(projeto.dataFim)}">01/01/2020</td> -->
-                  <!-- <td th:text="${projeto.cliente.nome}">Clara Giovana Daniela Duarte</td> -->
-                 <!--  <td th:text="${projeto.lider.nome}">Augusto Cesar</td> -->
-                <!--   <td th:text="${#numbers.formatCurrency(projeto.orcamentoEstimado)}"> -->
-                  <!--   R$ 5.000,00 -->
-                  <!-- </td> -->
+                  <td th:text="${projeto.id}">1</td>
+                  <td th:text="${projeto.nome}">Casa 4 quartos</td>
+                  <td th:text="${projeto.construtora}">JCGontijo</td>
+                  <td th:text="${projeto.tipoDoImovel}">Casa</td>
+                  <td th:text="${projeto.status}">Disponível</td>
+              
                   <td>
                     <div class="btn-group">
                       <a type="button" data-toggle="popover" data-placement="top" data-content="Detalhes" data-trigger="hover" class="btn btn-primary" th:href="@{/projetos/{id} (id=${projeto.id})}">
@@ -42,7 +41,7 @@
                         type="button" data-toggle="popover" data-placement="top" 
                         data-content="Remover" data-trigger="hover" class="btn btn-danger" 
                         th:href="@{/projetos/{id}/excluir (id=${projeto.id})}" 
-                        onclick="return confirm('Tem certeza que deseja excluir o projeto?');"
+                        onclick="return confirm('Tem certeza que deseja excluir o empreendimento?');"
                       >
                         <i class="fas fa-trash"></i>
                       </a>

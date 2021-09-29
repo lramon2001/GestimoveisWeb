@@ -1,5 +1,6 @@
 package br.com.treinaweb.twprojetos.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,12 +34,12 @@ public class Empreendimento {
     private String construtora;
 
     @Column(nullable = false)
-    @NumberFormat(style = Style.CURRENCY, pattern = "#.##0,00")
-    private Double valorDoImovel;
+    @NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
+    private BigDecimal valorDoImovel;
 
     @Column(nullable = false)
-    @NumberFormat(style = Style.CURRENCY, pattern = "#.##0,00")
-    private Double comisssao;
+    @NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
+    private BigDecimal comissao;
 
     @Column(nullable = false)
     private String tipoDoImovel;
@@ -85,20 +86,20 @@ public class Empreendimento {
         this.construtora = construtora;
     }
 
-    public Double getValorDoImovel() {
+    public BigDecimal getValorDoImovel() {
         return valorDoImovel;
     }
 
-    public void setValorDoImovel(Double valorDoImovel) {
+    public void setValorDoImovel(BigDecimal valorDoImovel) {
         this.valorDoImovel = valorDoImovel;
     }
 
-    public Double getComisssao() {
-        return comisssao;
+    public BigDecimal getComissao() {
+        return comissao;
     }
 
-    public void setComisssao(Double comisssao) {
-        this.comisssao = comisssao;
+    public void setComissao(BigDecimal comissao) {
+        this.comissao = comissao;
     }
 
     public String getTipoDoImovel() {

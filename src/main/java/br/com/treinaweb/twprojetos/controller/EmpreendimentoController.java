@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.treinaweb.twprojetos.model.Empreendimento;
+import br.com.treinaweb.twprojetos.model.UF;
 import br.com.treinaweb.twprojetos.repositorios.ClienteRepositorio;
 import br.com.treinaweb.twprojetos.repositorios.EmpreendimentoRepositorio;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,6 +49,7 @@ public class EmpreendimentoController {
 
         modelAndView.addObject("projeto", new Empreendimento());
         modelAndView.addObject("clientes", clienteRepositorio.findAll());
+        modelAndView.addObject("ufs", UF.values());
 
         return modelAndView;
     }
@@ -56,8 +58,9 @@ public class EmpreendimentoController {
     public ModelAndView editar(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("projeto/formulario");
 
-        modelAndView.addObject("projeto", empreendimentoRepositorio.findById(id).get());
+        modelAndView.addObject("projeto", empreendimentoRepositorio.getOne(id));
         modelAndView.addObject("clientes", clienteRepositorio.findAll());
+        modelAndView.addObject("ufs", UF.values());
 
         return modelAndView;
     }

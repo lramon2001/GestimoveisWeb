@@ -28,14 +28,14 @@
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="nome">Nome</label>
-                      <input type="text" class="form-control" placeholder="Inácio Rebotim Lisboa" th:field="*{nome}">
+                      <input type="text" class="form-control" placeholder="Edson Arantes do Nascimento" th:field="*{nome}">
                     </div>
                   </div>
 
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="cpf">CPF</label>
-                      <input type="text" class="form-control" placeholder="260.182.260-06" th:field="*{cpf}">
+                      <input type="text" class="form-control" placeholder="197.019.701-97" th:field="*{cpf}">
                     </div>
                   </div>
                 </div>
@@ -45,14 +45,14 @@
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="telefone">Telefone</label>
-                      <input type="text" class="form-control" placeholder="(61) 98457-7896" th:field="*{telefone}">
+                      <input type="text" class="form-control" placeholder="(11) 91970-1970" th:field="*{telefone}">
                     </div>
                   </div>
           
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="email">E-mail</label>
-                      <input type="email" class="form-control" placeholder="inacio@exemplo.com" th:field="*{email}">
+                      <input type="email" class="form-control" placeholder="pele@cbf.com" th:field="*{email}">
                     </div>
                   </div>
                 </div>
@@ -73,14 +73,14 @@
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="rg">RG</label>
-                      <input type="text" class="form-control" placeholder="3789547" th:field="*{rg}">
+                      <input type="text" class="form-control" placeholder="1970197" th:field="*{rg}">
                     </div>
                   </div>
 
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="estadoCivil">Estado Civil</label>
-                      <input type="text" class="form-control" placeholder="260.182.260-06" th:field="*{estadoCivil}">
+                      <input type="text" class="form-control" placeholder="Divorciado" th:field="*{estadoCivil}">
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-12">
@@ -92,7 +92,7 @@
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="dependentes">Numero de Dependentes</label>
-                      <input type="text" class="form-control" placeholder="1" th:field="*{dependentes}">
+                      <input type="text" class="form-control" placeholder="2" th:field="*{dependentes}">
                     </div>
                   </div>
                 </div>
@@ -124,7 +124,7 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="observacoes">Observações</label>
-                      <input type="text" class="form-control" th:field="*{observacoes}">
+                      <input type="text" class="form-control" placeholder="Pelé também é o jogador com mais passes para gols do Brasil. São 64 assistências do maior de todos os tempos com a amarelinha. Só em 1970, foram 11 passes para gols." th:field="*{observacoes}">
                     </div>
                   </div>
                 </div>
@@ -152,14 +152,14 @@
                     <div class="form-group">
                       <label>Estado</label>
                       <select th:field="*{endereco.uf}" class="form-control select2bs4" style="width: 100%;">
-                        <option th:each="uf : ${ufs}" th:text="${uf}" th:value="${uf}">SP</option>
+                        <option th:each="uf : ${ufs}" th:text="${uf}" th:value="${uf}">MG</option>
                       </select>
                     </div>
                   </div>
                   <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                       <label for="endereco.cidade">Cidade</label>
-                      <input type="text" class="form-control" placeholder="Caucaia" th:field="*{endereco.cidade}">
+                      <input type="text" class="form-control" placeholder="Três Corações" th:field="*{endereco.cidade}">
                     </div>
                   </div>
                 </div>
@@ -168,19 +168,19 @@
                   <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                       <label for="endereco.bairro">Bairro</label>
-                      <input type="text" class="form-control" placeholder="Pacheco" th:field="*{endereco.bairro}">
+                      <input type="text" class="form-control" placeholder="Vila Gesse" th:field="*{endereco.bairro}">
                     </div>
                   </div>
                   <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                       <label for="endereco.logradouro">Logradouro</label>
-                      <input type="text" class="form-control" placeholder="Rua Santo Antônio" th:field="*{endereco.logradouro}">
+                      <input type="text" class="form-control" placeholder="Rua Edson Arantes" th:field="*{endereco.logradouro}">
                     </div>
                   </div>
                   <div class="col-md-4 col-sm-12">
                     <div class="form-group">
                       <label for="endereco.numero">Número</label>
-                      <input type="text" class="form-control" placeholder="283" th:field="*{endereco.numero}">
+                      <input type="text" class="form-control" placeholder="10" th:field="*{endereco.numero}">
                     </div>
                   </div>
                 </div>
@@ -189,7 +189,7 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="endereco.complemento">Complemento</label>
-                      <input type="text" class="form-control" placeholder="Quadra D" th:field="*{endereco.complemento}">
+                      <input type="text" class="form-control" placeholder="Lugar onde nasceu o Rei da bola" th:field="*{endereco.complemento}">
                     </div>
                   </div>
                 </div>

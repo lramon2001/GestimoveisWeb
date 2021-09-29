@@ -2,7 +2,7 @@
 <html th:replace="~{layout :: layout (~{::title}, ~{::main}, _, _)}">
 
 <head>
-  <title>Detalhes do Projetos</title>
+  <title>Detalhes do Empreendimento</title>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title" th:text="${projeto.nome}">AvMakers Landing Page</h3>
+          <strong> <h4 th:text="${projeto.nome}">Empreendimento</h4></strong> 
           </div>
           <div class="card-body">
             <div class="row">
@@ -21,32 +21,32 @@
                   <div class="col-12 col-sm-3">
                     <div class="info-box bg-light">
                       <div class="info-box-content">
-                        <span class="info-box-text text-center text-muted">Orçamento Estimado</span>
-                        <span class="info-box-number text-center text-muted mb-0" th:text="${#numbers.formatCurrency(projeto.orcamentoEstimado)}">R$ 2.300,00</span>
+                        <span class="info-box-text text-center text-muted">Valor do Imóvel</span>
+                        <span class="info-box-number text-center text-muted mb-0" th:text="${#numbers.formatCurrency(projeto.valorDoImovel)}">R$ 200.300,00</span>
                       </div>
                     </div>
                   </div>
                   <div class="col-12 col-sm-3">
                     <div class="info-box bg-light">
                       <div class="info-box-content">
-                        <span class="info-box-text text-center text-muted">Gasto total</span>
-                        <span class="info-box-number text-center text-muted mb-0" th:text="${#numbers.formatCurrency(projeto.totalGasto)}">R$ 2.000,00</span>
+                        <span class="info-box-text text-center text-muted">Comissão</span>
+                        <span class="info-box-number text-center text-muted mb-0" th:text="${#numbers.formatCurrency(projeto.comissao)}">R$ 4.000,00</span>
                       </div>
                     </div>
                   </div>
                   <div class="col-12 col-sm-3">
                     <div class="info-box bg-light">
                       <div class="info-box-content">
-                        <span class="info-box-text text-center text-muted">Iníciado em</span>
-                        <span class="info-box-number text-center text-muted mb-0" th:text="${#temporals.format(projeto.dataInicio)}">7 de julho de 2018</span>
+                        <span class="info-box-text text-center text-muted">Tipo do Imóvel</span>
+                        <span class="info-box-number text-center text-muted mb-0" th:text="${projeto.tipoDoImovel}">Apartamento</span>
                       </div>
                     </div>
                   </div>
                   <div class="col-12 col-sm-3">
                     <div class="info-box bg-light">
                       <div class="info-box-content">
-                        <span class="info-box-text text-center text-muted">Finalizado em</span>
-                        <span class="info-box-number text-center text-muted mb-0" th:text="${projeto.dataFim == null ? '-' : #temporals.format(projeto.dataFim)}">7 de julho de 2018</span>
+                        <span class="info-box-text text-center text-muted">Status</span>
+                        <span class="info-box-number text-center text-muted mb-0" th:text="${projeto.status}">Disponível</span>
                       </div>
                     </div>
                   </div>
@@ -59,20 +59,13 @@
                 </p>
 
                 <br>
-                
-                <h4>Cliente</h4>
-                <p th:text="${projeto.cliente.nome}">Deveint Inc</p>
-                
-                <h4>Líder do Projeto</h4>
-                <p th:text="${projeto.lider.nome}">Tony Chicken</p>
-              
 
-                <h4>Equipe</h4>
+                <h4>Clientes Interessados neste Empreendimento</h4>
                 <ul class="list-unstyled">
-                  <li th:each="membro : ${projeto.equipe}">
-                    <span th:text="${membro.nome}">Functional-requirements.docx</span>
+                  <li th:each="cliente : ${projeto.clientes}">
+                    <span th:text="${cliente.nome}">José Inácio</span>
                     - 
-                    <span th:text="${membro.cargo.nome}"></span>
+                    <span th:text="${cliente.telefone}"></span>
                   </li>
                 </ul>
                 
@@ -87,7 +80,7 @@
                   <a 
                     href="#" class="btn btn-sm btn-danger"
                     th:href="@{/projetos/{id}/excluir (id=${projeto.id})}"
-                    onclick="return confirm('Tem certeza que deseja excluir o projeto?');"
+                    onclick="return confirm('Tem certeza que deseja excluir o empreendimento?');"
                   >
                     <i class="fas fa-trash"></i>
                     Excluir
