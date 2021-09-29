@@ -1,0 +1,302 @@
+package br.com.treinaweb.twprojetos.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+@Entity
+public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String nome;
+
+    @Column(nullable = false,unique = true)
+    private String cpf;
+
+    @Column(nullable = false)
+    private String rg;
+
+    @Column(nullable = false)
+    private String estadoCivil;
+
+    @Column(nullable = false)
+    private Double renda;
+
+    @Column(nullable = false)
+    private String telefone;
+
+    @Column(nullable = false, name="data_nascimento")
+    @DateTimeFormat(iso = ISO.DATE)
+    private LocalDate dataNascimento;
+
+    @Column(nullable = false)
+    private String genero;
+
+    @Column(nullable = false)
+    private String status;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private Integer dependentes;
+
+    @Column(nullable = false)
+    private Double fgts;
+
+   
+    private String observacoes;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id_fk", nullable = false)
+    private Endereço endereco;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public Double getRenda() {
+        return renda;
+    }
+
+    public void setRenda(Double renda) {
+        this.renda = renda;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getDependentes() {
+        return dependentes;
+    }
+
+    public void setDependentes(Integer dependentes) {
+        this.dependentes = dependentes;
+    }
+
+    public Double getFgts() {
+        return fgts;
+    }
+
+    public void setFgts(Double fgts) {
+        this.fgts = fgts;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
+
+    public Endereço getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereço endereco) {
+        this.endereco = endereco;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+        result = prime * result + ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
+        result = prime * result + ((dependentes == null) ? 0 : dependentes.hashCode());
+        result = prime * result + ((email == null) ? 0 : email.hashCode());
+        result = prime * result + ((estadoCivil == null) ? 0 : estadoCivil.hashCode());
+        result = prime * result + ((fgts == null) ? 0 : fgts.hashCode());
+        result = prime * result + ((genero == null) ? 0 : genero.hashCode());
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        result = prime * result + ((observacoes == null) ? 0 : observacoes.hashCode());
+        result = prime * result + ((renda == null) ? 0 : renda.hashCode());
+        result = prime * result + ((rg == null) ? 0 : rg.hashCode());
+        result = prime * result + ((status == null) ? 0 : status.hashCode());
+        result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Cliente other = (Cliente) obj;
+        if (cpf == null) {
+            if (other.cpf != null)
+                return false;
+        } else if (!cpf.equals(other.cpf))
+            return false;
+        if (dataNascimento == null) {
+            if (other.dataNascimento != null)
+                return false;
+        } else if (!dataNascimento.equals(other.dataNascimento))
+            return false;
+        if (dependentes == null) {
+            if (other.dependentes != null)
+                return false;
+        } else if (!dependentes.equals(other.dependentes))
+            return false;
+        if (email == null) {
+            if (other.email != null)
+                return false;
+        } else if (!email.equals(other.email))
+            return false;
+        if (estadoCivil == null) {
+            if (other.estadoCivil != null)
+                return false;
+        } else if (!estadoCivil.equals(other.estadoCivil))
+            return false;
+        if (fgts == null) {
+            if (other.fgts != null)
+                return false;
+        } else if (!fgts.equals(other.fgts))
+            return false;
+        if (genero == null) {
+            if (other.genero != null)
+                return false;
+        } else if (!genero.equals(other.genero))
+            return false;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (nome == null) {
+            if (other.nome != null)
+                return false;
+        } else if (!nome.equals(other.nome))
+            return false;
+        if (observacoes == null) {
+            if (other.observacoes != null)
+                return false;
+        } else if (!observacoes.equals(other.observacoes))
+            return false;
+        if (renda == null) {
+            if (other.renda != null)
+                return false;
+        } else if (!renda.equals(other.renda))
+            return false;
+        if (rg == null) {
+            if (other.rg != null)
+                return false;
+        } else if (!rg.equals(other.rg))
+            return false;
+        if (status == null) {
+            if (other.status != null)
+                return false;
+        } else if (!status.equals(other.status))
+            return false;
+        if (telefone == null) {
+            if (other.telefone != null)
+                return false;
+        } else if (!telefone.equals(other.telefone))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente [cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", dependentes=" + dependentes
+                + ", email=" + email + ", estadoCivil=" + estadoCivil + ", fgts=" + fgts + ", genero=" + genero
+                + ", id=" + id + ", nome=" + nome + ", observacoes=" + observacoes + ", renda=" + renda + ", rg=" + rg
+                + ", status=" + status + ", telefone=" + telefone + "]";
+    }
+    
+    
+    
+}
