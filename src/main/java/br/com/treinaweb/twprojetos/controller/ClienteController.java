@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.treinaweb.twprojetos.model.Cliente;
+import br.com.treinaweb.twprojetos.model.EstadoCivil;
+import br.com.treinaweb.twprojetos.model.Genero;
 import br.com.treinaweb.twprojetos.model.StatusCliente;
 import br.com.treinaweb.twprojetos.model.UF;
 import br.com.treinaweb.twprojetos.repositorios.ClienteRepositorio;
@@ -45,6 +47,8 @@ public ModelAndView cadastrar(){
     modelAndView.addObject("cliente", new Cliente());
     modelAndView.addObject("ufs", UF.values());
     modelAndView.addObject("statuses", StatusCliente.values());
+    modelAndView.addObject("generos", Genero.values());
+    modelAndView.addObject("estadosCivis", EstadoCivil.values());
 
     return modelAndView;
 }

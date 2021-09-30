@@ -35,7 +35,8 @@ public class Cliente {
     private String rg;
 
     @Column(nullable = false)
-    private String estadoCivil;
+    @Enumerated(EnumType.STRING)
+    private EstadoCivil estadoCivil;
 
     @Column(nullable = false)
     private Double renda;
@@ -48,7 +49,8 @@ public class Cliente {
     private LocalDate dataNascimento;
 
     @Column(nullable = false)
-    private String genero;
+    @Enumerated(EnumType.STRING)
+    private Genero genero;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -105,11 +107,13 @@ public class Cliente {
         this.rg = rg;
     }
 
-    public String getEstadoCivil() {
+    
+
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(String estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
@@ -137,15 +141,14 @@ public class Cliente {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getGenero() {
+   
+    public Genero getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
-
-  
 
     public String getEmail() {
         return email;
@@ -268,20 +271,14 @@ public class Cliente {
                 return false;
         } else if (!endereco.equals(other.endereco))
             return false;
-        if (estadoCivil == null) {
-            if (other.estadoCivil != null)
-                return false;
-        } else if (!estadoCivil.equals(other.estadoCivil))
+        if (estadoCivil != other.estadoCivil)
             return false;
         if (fgts == null) {
             if (other.fgts != null)
                 return false;
         } else if (!fgts.equals(other.fgts))
             return false;
-        if (genero == null) {
-            if (other.genero != null)
-                return false;
-        } else if (!genero.equals(other.genero))
+        if (genero != other.genero)
             return false;
         if (id == null) {
             if (other.id != null)
@@ -326,6 +323,8 @@ public class Cliente {
                 + nome + ", observacoes=" + observacoes + ", renda=" + renda + ", rg=" + rg + ", status=" + status
                 + ", telefone=" + telefone + "]";
     }
+
+   
 
    
     

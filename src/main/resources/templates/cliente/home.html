@@ -16,6 +16,7 @@
                   <th>Nome</th>
                   <th>E-mail</th>
                   <th>Telefone</th>
+                  <th>Status  </th>
                   <th>Ações</th>
                 </tr>
               </thead>
@@ -25,6 +26,7 @@
                   <td th:text="${cliente.nome}">Ayrton Senna da Silva</td>
                   <td th:text="${cliente.email}">sennynha@mclaren.com</td>
                   <td th:text="${cliente.telefone}">(11) 92974-3000</td>
+                  <td th:text="${cliente.status}">sennynha@mclaren.com</td>
                   <td>
                     <div class="btn-group">
                       <a type="button" data-toggle="popover" data-placement="top" data-content="Detalhes" data-trigger="hover" class="btn btn-primary" th:href="@{/clientes/{id} (id=${cliente.id})}">

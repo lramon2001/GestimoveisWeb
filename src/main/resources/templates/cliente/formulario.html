@@ -79,16 +79,23 @@
 
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                      <label for="estadoCivil">Estado Civil</label>
-                      <input type="text" class="form-control" placeholder="Divorciado" th:field="*{estadoCivil}">
+                      <label>Estado Civil</label>
+                      <select th:field="*{estadoCivil}" class="form-control select2bs4" style="width: 100%">
+                      <option th:each="estadoCivil : ${estadosCivis}" th:text="${estadoCivil}" th:value="${estadoCivil}">SOLTEIRO</option>
+
+                      </select>
                     </div>
                   </div>
+
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                      <label for="genero">Gênero</label>
-                      <input type="text" class="form-control" placeholder="masculino" th:field="*{genero}">
+                      <label >Gênero</label>
+                      <select th:field="*{genero}" class="form-control select2bs4" style="width: 100%">
+                      <option th:each="genero : ${generos}" th:text="${genero}" th:value="${genero}">MASCULINO</option>
+                    </select>
                     </div>
                   </div>
+
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="dependentes">Numero de Dependentes</label>
