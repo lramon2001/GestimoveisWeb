@@ -18,6 +18,8 @@
           <!-- /.card-header -->
           <!-- form start -->
           <form method="POST" th:object="${projeto}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> 
+
             <div class="card-body">
               <input type="hidden" th:field="*{id}">
 
