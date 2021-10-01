@@ -28,9 +28,20 @@ public ModelAndView home(){
 
     modelAndView.addObject("clientes", clienteRepositorio.findAll());
 
+
     return modelAndView;
 
 }
+
+
+@GetMapping("/inativos")
+public ModelAndView inativos(){
+    ModelAndView modelAndView = new ModelAndView("cliente/inativos");
+    modelAndView.addObject("clientes", clienteRepositorio.buscarinativos(StatusCliente.AGUARDANDO_CONTATO,StatusCliente.SEM_SIMULACAO,StatusCliente.NEGADO));
+    modelAndView.addObject("verificar", true);
+    return modelAndView;
+
+} 
 @GetMapping("/{id}")
 public ModelAndView detalhes(@PathVariable Long id){
     ModelAndView modelAndView = new ModelAndView("cliente/detalhes");
