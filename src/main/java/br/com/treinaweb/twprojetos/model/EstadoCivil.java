@@ -2,11 +2,11 @@ package br.com.treinaweb.twprojetos.model;
 
 public enum EstadoCivil {
 
-    SOLTEIRO("SOLTEIRO"),
-    CASADO("CASADO"),
-    SEPARADO("OUTRO"),
-    DIVORCIADO("DIVORCIADO"),
-    VIUVO("VIUVO");
+    SOLTEIRO("Solteiro(a)"),
+    CASADO("Casado(a)"),
+    SEPARADO("Separado(a)"),
+    DIVORCIADO("Divorciado(a)"),
+    VIUVO("Viúvo(a)");
 
     private String descricao;
 

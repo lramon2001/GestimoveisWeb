@@ -1,9 +1,9 @@
 package br.com.treinaweb.twprojetos.model;
 
 public enum Genero {
-    MASCULINO("MASCULINO"),
-    FEMININO("FEMININO"),
-    OUTRO("OUTRO");
+    MASCULINO("Masculino"),
+    FEMININO("Feminino"),
+    OUTRO("Outro");
 
     private String descricao;
 

@@ -59,7 +59,9 @@ public ModelAndView editar(@PathVariable Long id){
 
     modelAndView.addObject("cliente", clienteRepositorio.findById(id).get());
     modelAndView.addObject("ufs", UF.values());
-    modelAndView.addObject("status", StatusCliente.values());
+    modelAndView.addObject("statuses", StatusCliente.values());
+    modelAndView.addObject("generos", Genero.values());
+    modelAndView.addObject("estadosCivis", EstadoCivil.values());
     return modelAndView;
 
 }

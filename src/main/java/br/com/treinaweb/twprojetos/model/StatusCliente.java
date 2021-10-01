@@ -2,14 +2,14 @@ package br.com.treinaweb.twprojetos.model;
 
 public enum StatusCliente {
     
-    AGUARDANDO_CONTATO("AGUARDANDO_CONTATO"),
-    SEM_SIMULACAO("SEM_SIMULACAO"),
-    EM_SIMULACAO("EM_SIMULACAO"),
-    SIMULACAO_PRONTA("SIMULACAO_PRONTA"),
-    NEGADO("NEGADO"),
-    EM_APROVACAO("EM_APROVACAO"),
-    APROVADO("APROVADO"),
-    VENDA_CONCLUIDA("VENDA_CONCLUIDA");
+    AGUARDANDO_CONTATO("Aguardando Contato"),
+    SEM_SIMULACAO("Sem Simulação"),
+    EM_SIMULACAO("Em Simulção"),
+    SIMULACAO_PRONTA("Simulação pronta"),
+    NEGADO("Negado"),
+    EM_APROVACAO("Em aprovação"),
+    APROVADO("Aprovado"),
+    VENDA_CONCLUIDA("Venda Concluída");
 
     private String descricao; 
 

@@ -120,7 +120,7 @@
                   
                 </div>
               
-                <div class="col-md-6 col-sm-12">
+                <div >
                   <div class="form-group">
                     <label>Status</label>
                      <select th:field="*{status}" class="form-control select2bs4" style="width: 100%;">
@@ -134,11 +134,13 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="observacoes">Observações</label>
-                      <input type="text" class="form-control" placeholder="Pelé também é o jogador com mais passes para gols do Brasil. São 64 assistências do maior de todos os tempos com a amarelinha. Só em 1970, foram 11 passes para gols." th:field="*{observacoes}">
+                      <textarea class="form-control" rows="4" th:field="*{observacoes}" placeholder="Pelé também é o jogador com mais passes para gols do Brasil. São 64 assistências do maior de todos os tempos com a amarelinha. Só em 1970, foram 11 passes para gols."></textarea>
+                   
                     </div>
                   </div>
                 </div>
-              </div>
+                
+              
                
                
               
@@ -195,11 +197,13 @@
                   </div>
                 </div>
 
+            
+
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="endereco.complemento">Complemento</label>
-                      <input type="text" class="form-control" placeholder="Lugar onde nasceu o Rei da bola" th:field="*{endereco.complemento}">
+                      <input type="textarea" class="form-control" placeholder="Lugar onde nasceu o Rei da bola" th:field="*{endereco.complemento}">
                     </div>
                   </div>
                 </div>
@@ -214,6 +218,7 @@
         </div>
       </div>
     </div>
+  </div>
   </main>
 
   <th:block th:fragment="scripts">
