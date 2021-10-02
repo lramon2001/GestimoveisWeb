@@ -27,9 +27,10 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Entre com suas credenciais para iniciar a seção</p>
-
+      <!-- "${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" -->
+   <!--    th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" -->
       <div th:if="${param.error != null}" class="alert alert-danger">
-        <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
+        <span >Usuário e/ou senha incorretos</span>
       </div>
 
       <form method="POST" th:action="@{/login}">
