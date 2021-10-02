@@ -47,12 +47,25 @@ public class CorretorController {
         return modelAndView;
     }
 
-    @PostMapping({"/cadastrar", "/{id}/editar"})
-    public String salvar(Corretor corretor) {
+    @PostMapping("/cadastrar")
+    public String cadastrar(Corretor corretor) {
         String senhaCriptografada = SenhaUtils.encode(corretor.getSenha()); 
+
         corretor.setSenha(senhaCriptografada);
         corretorRepositorio.save(corretor);
+
         return "redirect:/corretores";
+    }
+
+    @PostMapping("/{id}/editar")
+    public String editar(Corretor corretor, @PathVariable Long id){
+        String senhaAtual = corretorRepositorio.findById(id).get().getSenha();
+        corretor.setSenha(senhaAtual);
+
+        corretorRepositorio.save(corretor);
+
+        return "redirect:/corretores";
+
     }
 
     @GetMapping("/{id}/excluir")
