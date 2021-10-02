@@ -21,7 +21,9 @@ public class Corretor {
     @Column(nullable = false)
     private String usuario;
 
-    
+    @Column(nullable = false)
+    private String senha;
+
     public Long getId() {
         return id;
     }
@@ -52,6 +54,14 @@ public class Corretor {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
    

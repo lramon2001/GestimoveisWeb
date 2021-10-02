@@ -18,6 +18,7 @@
           <!-- /.card-header -->
           <!-- form start -->
           <form method="POST" th:object="${corretor}">
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <div class="card-body">
               <fieldset>
                 <legend>Dados Pessoais</legend>
