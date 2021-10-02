@@ -86,6 +86,17 @@
                     </div>
                   </div>
                 </div>
+
+                <fieldset th:if="${corretor.senha == null}">
+                    <legend>Dados de Login</legend>
+                    <div class="row"><div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control" th:field="*{senha}" placeholder="Digite sua senha">
+                        </div>
+                    </div>
+                    </div>
+                </fieldset>
               </fieldset>
 
               <!-- <fieldset>

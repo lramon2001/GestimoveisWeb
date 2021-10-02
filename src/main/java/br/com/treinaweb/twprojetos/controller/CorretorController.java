@@ -1,6 +1,7 @@
 package br.com.treinaweb.twprojetos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.treinaweb.twprojetos.model.Corretor;
 import br.com.treinaweb.twprojetos.repositorios.CorretorRepositorio;
+import br.com.treinaweb.twprojetos.utils.SenhaUtils;
 
 @Controller
 @RequestMapping("/corretores")
@@ -47,8 +49,9 @@ public class CorretorController {
 
     @PostMapping({"/cadastrar", "/{id}/editar"})
     public String salvar(Corretor corretor) {
+        String senhaCriptografada = SenhaUtils.encode(corretor.getSenha()); 
+        corretor.setSenha(senhaCriptografada);
         corretorRepositorio.save(corretor);
-
         return "redirect:/corretores";
     }
 
