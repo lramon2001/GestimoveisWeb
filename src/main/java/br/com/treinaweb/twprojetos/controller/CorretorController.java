@@ -1,5 +1,8 @@
 package br.com.treinaweb.twprojetos.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -30,18 +33,27 @@ public class CorretorController {
 
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
+        List<String> usuarios = new ArrayList<String>();
+        usuarios.add("Administrador");
+        usuarios.add("Usuário padrão");
         ModelAndView modelAndView = new ModelAndView("corretor/formulario");
-
+        modelAndView.addObject("usuarios", usuarios);
         modelAndView.addObject("corretor", new Corretor());
+        
       
         return modelAndView;
     }
 
     @GetMapping("/{id}/editar")
     public ModelAndView editar(@PathVariable Long id) {
+        List<String> usuarios = new ArrayList<String>();
+        usuarios.add("Administrador");
+        usuarios.add("Usuário padrão");
+        
         ModelAndView modelAndView = new ModelAndView("corretor/formulario");
-
+        modelAndView.addObject("usuarios", usuarios);
         modelAndView.addObject("corretor", corretorRepositorio.findById(id).get());
+      
 
 
         return modelAndView;
@@ -49,6 +61,7 @@ public class CorretorController {
 
     @PostMapping("/cadastrar")
     public String cadastrar(Corretor corretor) {
+
         String senhaCriptografada = SenhaUtils.encode(corretor.getSenha()); 
 
         corretor.setSenha(senhaCriptografada);

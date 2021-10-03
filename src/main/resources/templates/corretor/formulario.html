@@ -18,7 +18,7 @@
           <!-- /.card-header -->
           <!-- form start -->
           <form method="POST" th:object="${corretor}">
-              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <div class="card-body">
               <fieldset>
                 <legend>Dados Pessoais</legend>
@@ -32,21 +32,11 @@
                       <input type="text" class="form-control" placeholder="Mariane Josefa Gonçalves" th:field="*{nome}">
                     </div>
                   </div>
-                  <!-- <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                      <label for="cpf">CPF</label>
-                      <input type="text" class="form-control" placeholder="401.447.368-61" th:field="*{cpf}">
-                    </div>
-                  </div> -->
+
                 </div>
 
                 <div class="row">
-                 <!--  <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                      <label for="telefone">Telefone</label>
-                      <input type="text" class="form-control" placeholder="(85) 99856-6603" th:field="*{telefone}">
-                    </div>
-                  </div> -->
+
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                       <label for="email">E-mail</label>
@@ -54,109 +44,33 @@
                     </div>
                   </div>
                 </div>
-
-              <!--   <div class="row">
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="dataNascimento">Data de Nascimento</label>
-                      <input type="date" class="form-control" th:field="*{dataNascimento}">
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="dataAdmissao">Data de Admissão</label>
-                      <input type="date" class="form-control" th:field="*{dataAdmissao}">
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="dataDemissao">Data de Demissão</label>
-                      <input type="date" class="form-control" th:field="*{dataDemissao}">
-                    </div>
-                  </div>
-                </div>
- -->
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label for="usuario">Tipo de usuário</label>
-                        <input type="text" class="form-control" placeholder="Administrador" th:field="*{usuario}">
-
-                        
-                    </div>
-                  </div>
-                </div>
-
-                <fieldset th:if="${corretor.senha == null}">
-                    <legend>Dados de Login</legend>
-                    <div class="row"><div class="col-md-6 col-sm-12">
-                        <div class="form-group">
-                            <label for="senha">Senha</label>
-                            <input type="password" class="form-control" th:field="*{senha}" placeholder="Digite sua senha">
-                        </div>
-                    </div>
-                    </div>
-                </fieldset>
-              </fieldset>
-
-              <!-- <fieldset>
-                <legend>Endereço</legend>
-
-                <input type="hidden" th:field="*{endereco.id}">
-
-                <div class="row">
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="endereco.cep">CEP</label>
-                      <input type="text" class="form-control" placeholder="61626-365" th:field="*{endereco.cep}">
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label>Estado</label>
-                      <select th:field="*{endereco.uf}" class="form-control select2bs4" style="width: 100%;">
-                        <option th:each="uf : ${ufs}" th:text="${uf}" th:value="${uf}">SP</option>
+                      <label>Tipo de usuário</label>
+                      <select th:field="*{usuario}" class="form-control select2bs4" style="width: 100%">
+                        <option th:each="usuario : ${usuarios}" th:text="${usuario}" th:value="${usuario}"> </option>
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="endereco.cidade">Cidade</label>
-                      <input type="text" class="form-control" placeholder="Caucaia" th:field="*{endereco.cidade}">
-                    </div>
-                  </div>
+
                 </div>
 
-                <div class="row">
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="endereco.bairro">Bairro</label>
-                      <input type="text" class="form-control" placeholder="Pacheco" th:field="*{endereco.bairro}">
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="endereco.logradouro">Logradouro</label>
-                      <input type="text" class="form-control" placeholder="Rua Santo Antônio" th:field="*{endereco.logradouro}">
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label for="endereco.numero">Número</label>
-                      <input type="text" class="form-control" placeholder="283" th:field="*{endereco.numero}">
-                    </div>
-                  </div>
-                </div>
+                <fieldset th:if="${corretor.senha == null}">
+                  <legend>Dados de Login</legend>
 
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <label for="endereco.complemento">Complemento</label>
-                      <input type="text" class="form-control" placeholder="Quadra D" th:field="*{endereco.complemento}">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                      <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" class="form-control" th:field="*{senha}" placeholder="Digite sua senha">
+                      </div>
                     </div>
                   </div>
-                </div>
-              </fieldset> -->
+                </fieldset>
+              </fieldset>
+
+
             </div>
             <!-- /.card-body -->
 
@@ -178,16 +92,27 @@
       })
 
       $('#cpf').inputmask(
-        {"mask": "999.999.999-99"}
+        { "mask": "999.999.999-99" }
       )
       $('#telefone').inputmask(
-        {"mask": "(99) 99999-9999"}
+        { "mask": "(99) 99999-9999" }
       )
       $('#endereco\\.cep').inputmask(
-        {"mask": "99999-999"}
+        { "mask": "99999-999" }
       )
     </script>
   </th:block>
 </body>
 
 </html>
+
+<!--                   <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="usuario">Tipo de usuário</label>
+                        <input type="text" class="form-control" placeholder="Administrador" th:field="*{usuario}">
+
+                        
+                    </div>
+                  </div>
+                </div> 
+ -->
