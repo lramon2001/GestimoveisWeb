@@ -3,6 +3,7 @@ package br.com.treinaweb.twprojetos.model;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserDetailsImpl implements UserDetails{
@@ -16,8 +17,11 @@ public class UserDetailsImpl implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        return null;
+        Perfil perfil = corretor.getUsuario().equals("Administrador") ? 
+        Perfil.ADMIN : 
+        Perfil.USER;
+
+        return AuthorityUtils.createAuthorityList(perfil.toString());
     }
 
     @Override

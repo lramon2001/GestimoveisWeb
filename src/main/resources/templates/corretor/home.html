@@ -31,14 +31,15 @@
                       <a type="button" data-toggle="popover" data-placement="top" data-content="Detalhes" data-trigger="hover" class="btn btn-primary" th:href="@{/corretores/{id} (id=${corretor.id})}">
                         <i class="fas fa-eye"></i>
                       </a>
-                      <a type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/corretores/{id}/editar (id=${corretor.id})}">
+                      <a type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/corretores/{id}/editar (id=${corretor.id})}" sec:authorize="hasAuthority('ADMIN')">
                         <i class="fas fa-edit"></i>
                       </a>
                       <a 
                         type="button" data-toggle="popover" data-placement="top" 
                         data-content="Remover" data-trigger="hover" class="btn btn-danger" 
                         th:href="@{/corretores/{id}/excluir (id=${corretor.id})}" 
-                        onclick="return confirm('Tem certeza que deseja excluir o corretor?');"
+                        onclick="return confirm('Tem certeza que deseja excluir o corretor?');" 
+                        sec:authorize="hasAuthority('ADMIN')"
                       >
                         <i class="fas fa-trash"></i>
                       </a>
