@@ -21,7 +21,6 @@
 
                 <h3 class="profile-username text-center" th:text="${logado.nome}">Nina Mcintire</h3>
 
-                <!-- <p class="text-muted text-center" th:text="${logado.cargo.nome}">Software Engineer</p> -->
               </div>
               <!-- /.card-body -->
             </div>
@@ -34,48 +33,12 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <!-- <strong><i class="fas fa-book mr-1"></i> CPF</strong>
-                <p class="text-muted" th:text="${logado.cpf}">
-                  484.325.821-07
-                </p>
-
-                <hr>
- -->
-              <!--   <strong><i class="fas fa-mobile mr-1"></i> Telefone</strong>
-                <p class="text-muted" th:text="${logado.telefone}">(82) 98881-5053</p>
-
-                <hr> -->
 
                 <strong><i class="fas fa-envelope mr-1"></i> E-mail</strong>
                 <p class="text-muted" id="email" th:text="${logado.email}">nina@mail.com</p>
 
                 <hr>
 
-               <!--  <strong><i class="fas fa-calendar-alt mr-1"></i> Data de Nascimento</strong>
-                <p class="text-muted" th:text="${#temporals.format(logado.dataNascimento)}">
-                  30 de maio de 1981
-                </p>
-
-                <hr> -->
-                
-                <!-- <strong><i class="fas fa-calendar-alt mr-1"></i> Data de Admissão</strong>
-                <p class="text-muted" th:text="${#temporals.format(logado.dataAdmissao)}">
-                  30 de maio de 1981
-                </p>
-
-                <hr>
-                
-                <div th:if="${logado.dataDemissao != null}">
-                  <strong><i class="fas fa-calendar-alt mr-1"></i> Data de Demissão</strong>
-                  <p class="text-muted" th:text="${#temporals.format(logado.dataDemissao)}">
-                    30 de maio de 1981
-                  </p>
-
-                  <hr> 
-                </div>-->
-
-                <!-- <strong><i class="fas fa-map-marker-alt mr-1"></i> Endereço</strong>
-                <p class="text-muted" th:text="${logado.endereco}">Malibu, California</p> -->
               </div>
               <!-- /.card-body -->
             </div>
@@ -86,41 +49,16 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                 <!--  <li class="nav-item"><a class="nav-link active" href="#projetos" data-toggle="tab">Projetos</a></li> -->
-                  <li class="nav-item"><button class="btn btn-primary" href="#mudar-senha" data-toggle="tab">Atualizar Senha</button></li>
+                  <li class="nav-item"><button class="btn btn-primary" href="#mudar-senha" data-toggle="tab">Atualizar
+                      Senha</button></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  <!-- <div class="active tab-pane" id="projetos">
-                     The timeline 
-                    <div class="timeline">
-                       timeline item 
-                      <div th:each="projeto : ${logado.projetos}">
-                        <i class="fas fa-project-diagram bg-primary"></i>
-    
-                         <div class="timeline-item">
-                          <span class="time">
-                            <i class="far fa-clock"></i> <span th:text="${#temporals.format(projeto.dataInicio)}"></span>
-                          </span> 
-    
-                          <h3 class="timeline-header" th:text="${projeto.nome}"></h3>
-    
-                          <div class="timeline-body" th:text="${projeto.descricao}">
-                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                            quora plaxo ideeli hulu weebly balihoo...
-                          </div>
-                          <div class="timeline-footer">
-                            <a th:href="@{/projetos/{id} (id=${projeto.id})}" class="btn btn-primary btn-sm">Detalhes</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
+
                   <div class="tab-pane" id="mudar-senha">
-                    <form class="form-horizontal" method="POST" th:action="@{/alterar-senha}" th:object="${alterarSenhaForm}">
+                    <form class="form-horizontal" method="POST" th:action="@{/alterar-senha}"
+                      th:object="${alterarSenhaForm}">
                       <div class="form-group row">
                         <label for="senhaAtual" class="col-sm-2 col-form-label">Senha atual</label>
                         <div class="col-sm-10">

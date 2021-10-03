@@ -18,7 +18,7 @@
           <!-- /.card-header -->
           <!-- form start -->
           <form method="POST" th:object="${projeto}">
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> 
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 
             <div class="card-body">
               <input type="hidden" th:field="*{id}">
@@ -31,10 +31,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
 
 
               <div class="row">
@@ -51,9 +47,6 @@
                   </div>
                 </div>
               </div>
-
-
-
 
 
               <div class="row">
@@ -162,7 +155,8 @@
                 <div class="col-sm-12">
                   <div class="form-group">
                     <label for="endereco.complemento">Complemento</label>
-                    <input type="text" class="form-control" placeholder="próximo ao BRT" th:field="*{endereco.complemento}">
+                    <input type="text" class="form-control" placeholder="próximo ao BRT"
+                      th:field="*{endereco.complemento}">
                   </div>
                 </div>
               </div>

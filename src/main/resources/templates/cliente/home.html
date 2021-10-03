@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
+
 <head>
   <title>Lista de Clientes</title>
 </head>
+
 <body>
   <main>
     <div class="row">
@@ -16,7 +18,7 @@
                   <th>Nome</th>
                   <th>E-mail</th>
                   <th>Telefone</th>
-                  <th>Status  </th>
+                  <th>Status </th>
                   <th>Ações</th>
                 </tr>
               </thead>
@@ -29,20 +31,21 @@
                   <td th:text="${cliente.status}">sennynha@mclaren.com</td>
                   <td>
                     <div class="btn-group">
-                      <a type="button" data-toggle="popover" data-placement="top" data-content="Detalhes" data-trigger="hover" class="btn btn-primary" th:href="@{/clientes/{id} (id=${cliente.id})}">
+                      <a type="button" data-toggle="popover" data-placement="top" data-content="Detalhes"
+                        data-trigger="hover" class="btn btn-primary" th:href="@{/clientes/{id} (id=${cliente.id})}">
                         <i class="fas fa-eye"></i>
                       </a>
-                      <a type="button" data-toggle="popover" data-placement="top" data-content="Editar" data-trigger="hover" class="btn btn-warning" th:href="@{/clientes/{id}/editar (id=${cliente.id})}" sec:authorize="hasAuthority('ADMIN')">
+                      <a type="button" data-toggle="popover" data-placement="top" data-content="Editar"
+                        data-trigger="hover" class="btn btn-warning"
+                        th:href="@{/clientes/{id}/editar (id=${cliente.id})}" sec:authorize="hasAuthority('ADMIN')">
                         <i class="fas fa-edit"></i>
-                        
+
                       </a>
-                      <a 
-                        type="button" data-toggle="popover" data-placement="top" 
-                        data-content="Remover" data-trigger="hover" class="btn btn-danger" 
-                        th:href="@{/clientes/{id}/excluir (id=${cliente.id})}" 
+                      <a type="button" data-toggle="popover" data-placement="top" data-content="Remover"
+                        data-trigger="hover" class="btn btn-danger"
+                        th:href="@{/clientes/{id}/excluir (id=${cliente.id})}"
                         onclick="return confirm('Tem certeza que deseja excluir o cliente?');"
-                        sec:authorize="hasAuthority('ADMIN')"
-                      >
+                        sec:authorize="hasAuthority('ADMIN')">
                         <i class="fas fa-trash"></i>
                       </a>
                     </div>
@@ -65,4 +68,5 @@
     </script>
   </th:block>
 </body>
+
 </html>
