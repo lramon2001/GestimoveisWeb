@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside th:fragment="aside" class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a th:href="@{/}" class="brand-link">
+  <a th:href="@{/clientes}" class="brand-link">
     <img th:src="@{/img/tw-logo.png}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
     <span class="brand-text font-weight-light">GestImoveis</span>
   </a>
@@ -10,7 +10,7 @@
   <div class="sidebar">
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="info">
-        <a href="" class="d-block" sec:authentication="name">
+        <a th:href="@{/perfil}" class="d-block" sec:authentication="name">
         </a>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a th:href="@{/clientes}" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Clientes
@@ -50,7 +50,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a th:href="@{/corretores}" class="nav-link">
             <i class="nav-icon fas fa-user-tie"></i>
             <p>
               Corretores
@@ -122,7 +122,7 @@
         </li> -->
         
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a th:href="@{/projetos}" class="nav-link">
             <i class="nav-icon fas fa-home"></i>
             <p>
               Empreendimentos
