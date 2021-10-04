@@ -88,5 +88,14 @@ public class CorretorController {
         return "redirect:/corretores";
     }
 
+    @GetMapping("/{id}")
+    public ModelAndView detalhes (@PathVariable Long id){
+        ModelAndView modelAndView = new ModelAndView("corretor/detalhes");
+
+        modelAndView.addObject("corretor", corretorRepositorio.findById(id).get());
+
+        return modelAndView;
+    }
+
     
 }
