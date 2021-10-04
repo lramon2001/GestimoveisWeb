@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.gestimoveis.gprojetos.model.Empreendimento;
+import br.com.gestimoveis.gprojetos.model.StatusImovel;
 import br.com.gestimoveis.gprojetos.model.UF;
 import br.com.gestimoveis.gprojetos.repositorios.ClienteRepositorio;
 import br.com.gestimoveis.gprojetos.repositorios.EmpreendimentoRepositorio;
@@ -50,6 +51,7 @@ public class EmpreendimentoController {
         modelAndView.addObject("projeto", new Empreendimento());
         modelAndView.addObject("clientes", clienteRepositorio.findAll());
         modelAndView.addObject("ufs", UF.values());
+        modelAndView.addObject("statuses",StatusImovel.values());
 
         return modelAndView;
     }
@@ -61,6 +63,7 @@ public class EmpreendimentoController {
         modelAndView.addObject("projeto", empreendimentoRepositorio.getOne(id));
         modelAndView.addObject("clientes", clienteRepositorio.findAll());
         modelAndView.addObject("ufs", UF.values());
+        modelAndView.addObject("statuses",StatusImovel.values());
 
         return modelAndView;
     }

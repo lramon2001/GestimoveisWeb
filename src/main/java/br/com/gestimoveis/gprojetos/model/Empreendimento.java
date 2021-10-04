@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +47,8 @@ public class Empreendimento {
     private String tipoDoImovel;
 
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private StatusImovel status;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String descricao;
@@ -110,11 +113,11 @@ public class Empreendimento {
         this.tipoDoImovel = tipoDoImovel;
     }
 
-    public String getStatus() {
+    public StatusImovel getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusImovel status) {
         this.status = status;
     }
 

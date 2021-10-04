@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
+
+<head>
+    <title>Relatório</title>
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-header">
+                        <strong>
+                            <h4>Clientes</h4>
+                        </strong>
+                    </div>
+                    <div class="card-body">
+                        <h4 th:text="'+ '+${total_clientes} + '  clientes'"></h4>
+                        <div class="row">
+                            <div class="col-12 order-2 order-md-1">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="info-box bg-light">
+                                            <div class="info-box-content">
+                                                <span class="info-box-text text-center text-muted">Valor do
+                                                    Imóvel</span>
+                                                    <div class="row h-100 justify-content-center align-items-center">
+                                                        <img th:src="@{/img/grafico a.png}" width="50%">
+                                                     </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    <div class="col-12 col-sm-6">
+                                        <div class="info-box bg-light">
+                                            <div class="info-box-content">
+                                                <span class="info-box-text text-center text-muted">Status</span>
+                                                <div class="row h-100 justify-content-center align-items-center">
+                                                    <img th:src="@{/img/grafico a.png}" width="50%">
+                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 order-1 order-md-2">
+                                
+
+
+                                <br>
+
+                             
+                                <ul class="list-unstyled">
+
+                                </ul>
+
+                                <div class="text-center mt-5 mb-3">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+
+            <div class="col-sm-12">
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-header">
+                        <strong>
+                            <h4>Empreendimentos</h4>
+                        </strong>
+                    </div>
+                    <div class="card-body">
+                        <h4 th:text="'+ '+${total_empreendimentos} + '  empreendimentos'"></h4>
+                        <div class="row">
+                            <div class="col-12 order-2 order-md-1">
+                                <div class="row">
+                                    
+                                    <div class="col-12 col-sm-12">
+                                        <div class="info-box bg-light">
+                                            <div class="info-box-content">
+                                                <span class="info-box-text text-center text-muted">Valor do
+                                                    Imóvel</span>
+                                                    <div class="row h-100 justify-content-center align-items-center">
+                                                        <img th:src="@{/img/grafico a.png}" width="25%">
+                                                     </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <div class="col-12 order-1 order-md-2">
+                               
+
+
+                              
+
+                               
+                                <ul class="list-unstyled">
+
+                                </ul>
+
+                                <div class="text-center mt-5 mb-3">
+
+
+                                </div>
+                            </div>
+                        </div>
+                     <div class="row h-100 justify-content-center align-items-center">
+                        <h4 th:text="'+ '+${vendido} + '  vendas'"></h4>
+                     </div>
+                            
+                        
+                      
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                
+            </div>
+        </div>
+
+    </main>
+
+    <th:block th:fragment="scripts">
+        <script>
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
+        </script>
+    </th:block>
+</body>
+
+</html>

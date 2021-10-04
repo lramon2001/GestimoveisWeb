@@ -11,7 +11,6 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-md-3">
-
                         <!-- Profile Image -->
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
@@ -19,15 +18,12 @@
                                     <img class="profile-user-img img-fluid img-circle" id="profile-user-img"
                                         alt="User profile picture">
                                 </div>
-
                                 <h3 class="profile-username text-center" th:text="${corretor.nome}">Ayrton Senna</h3>
-
                                 <p class="text-muted text-center" th:text="${corretor.usuario}">Administrador</p>
                             </div>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-
                         <!-- About Me Box -->
                         <div class="card card-primary">
                             <div class="card-header">
@@ -37,9 +33,7 @@
                             <div class="card-body">
                                 <strong><i class="fas fa-envelope mr-1"></i> E-mail</strong>
                                 <p class="text-muted" id="email" th:text="${corretor.email}">nina@mail.com</p>
-
                                 <hr>
-
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -52,12 +46,10 @@
             </div>
         </div>
     </main>
-
     <th:block th:fragment="scripts">
         <script th:src="@{/js/avatar.min.js}"></script>
         <script>
             const email = document.getElementById("email").innerText;
-
             const avatar = Avatar.from(document.getElementById('profile-user-img'), {
                 'email': email
             });
