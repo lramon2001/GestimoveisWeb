@@ -119,10 +119,11 @@ public class CorretorController {
         modelAndView.addObject("simulacao_pronta", clienteRepositorio.buscaporstatus(StatusCliente.SIMULACAO_PRONTA).size());
         modelAndView.addObject("negado", clienteRepositorio.buscaporstatus(StatusCliente.NEGADO).size());
         modelAndView.addObject("em_aprovacao", clienteRepositorio.buscaporstatus(StatusCliente.EM_APROVACAO).size());
-        modelAndView.addObject("aprovado", clienteRepositorio.buscaporstatus(StatusCliente.VENDA_CONCLUIDA).size());
+        modelAndView.addObject("aprovado", clienteRepositorio.buscaporstatus(StatusCliente.APROVADO).size());
         modelAndView.addObject("inativos",clienteRepositorio.buscarinativos(StatusCliente.AGUARDANDO_CONTATO, StatusCliente.SEM_SIMULACAO, StatusCliente.NEGADO).size());
         modelAndView.addObject("ativos", clienteRepositorio.findAll().size()-clienteRepositorio.buscarinativos(StatusCliente.AGUARDANDO_CONTATO, StatusCliente.SEM_SIMULACAO, StatusCliente.NEGADO).size());
         modelAndView.addObject("total_clientes", clienteRepositorio.findAll().size());
+        modelAndView.addObject("venda_concluida", clienteRepositorio.buscaporstatus(StatusCliente.VENDA_CONCLUIDA).size());
 
         modelAndView.addObject("disponivel",empreendimentoRepositorio.findByStatus(StatusImovel.DISPONIVEL).size());
         modelAndView.addObject("indisponivel",empreendimentoRepositorio.findByStatus(StatusImovel.INDISPONIVEL).size());
