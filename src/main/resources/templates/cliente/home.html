@@ -45,7 +45,8 @@
                         data-trigger="hover" class="btn btn-danger"
                         th:href="@{/clientes/{id}/excluir (id=${cliente.id})}"
                         onclick="return confirm('Tem certeza que deseja excluir o cliente?');"
-                        sec:authorize="hasAuthority('ADMIN')">
+                        sec:authorize="hasAuthority('ADMIN')"
+                       >
                         <i class="fas fa-trash"></i>
                       </a>
                     </div>

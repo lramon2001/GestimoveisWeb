@@ -2,7 +2,7 @@
 <html th:replace="~{layout :: layout (~{::title}, ~{::main}, _, ~{::scripts})}">
 
 <head>
-    <title>Relatório</title>
+    <title>Relatório do Corretor</title>
 </head>
 
 <body>
@@ -26,109 +26,115 @@
                                             <div class="info-box-content">
                                                 <span class="info-box-text text-center text-muted">Valor do
                                                     Imóvel</span>
-                                                    <div class="row h-100 justify-content-center align-items-center">
-                                                        <img th:src="@{/img/grafico a.png}" width="50%">
-                                                     </div>
-                                                
+                                                <div class="row h-100 justify-content-center align-items-center">
+                                                    <div class="col-12 col-sm-4">
+                                                        <canvas id="chart-ativos-inativos"></canvas>
+
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                   
-                                    
-                                    <div class="col-12 col-sm-6">
-                                        <div class="info-box bg-light">
-                                            <div class="info-box-content">
-                                                <span class="info-box-text text-center text-muted">Status</span>
-                                                <div class="row h-100 justify-content-center align-items-center">
-                                                    <img th:src="@{/img/grafico a.png}" width="50%">
-                                                 </div>
+
+                                        <div class="col-12 col-sm-4">
+                                            <div class="info-box bg-light">
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text text-center text-muted">Status</span>
+                                                    <div class="row h-100 justify-content-center align-items-center">
+                                                        <!-- <div class="col-12 col-sm-4">
+                                                            <canvas id="chart-status"></canvas>
+    
+                                                        </div> -->
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 order-1 order-md-2">
-                                
+                                <div class="col-12 order-1 order-md-2">
 
 
-                                <br>
 
-                             
-                                <ul class="list-unstyled">
-
-                                </ul>
-
-                                <div class="text-center mt-5 mb-3">
+                                    <br>
 
 
+                                    <ul class="list-unstyled">
+
+                                    </ul>
+
+                                    <div class="text-center mt-5 mb-3">
+
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
-            </div>
 
-            <div class="col-sm-12">
-                <!-- Default box -->
-                <div class="card">
-                    <div class="card-header">
-                        <strong>
-                            <h4>Empreendimentos</h4>
-                        </strong>
-                    </div>
-                    <div class="card-body">
-                        <h4 th:text="'+ '+${total_empreendimentos} + '  empreendimentos'"></h4>
-                        <div class="row">
-                            <div class="col-12 order-2 order-md-1">
-                                <div class="row">
-                                    
-                                    <div class="col-12 col-sm-12">
-                                        <div class="info-box bg-light">
-                                            <div class="info-box-content">
-                                                <span class="info-box-text text-center text-muted">Valor do
-                                                    Imóvel</span>
+                <div class="col-sm-12">
+                    <!-- Default box -->
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>
+                                <h4>Empreendimentos</h4>
+                            </strong>
+                        </div>
+                        <div class="card-body">
+                            <h4 th:text="'+ '+${total_empreendimentos} + '  empreendimentos'"></h4>
+                            <div class="row">
+                                <div class="col-12 order-2 order-md-1">
+                                    <div class="row">
+
+                                        <div class="col-12 col-sm-12">
+                                            <div class="info-box bg-light">
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text text-center text-muted">Valor do
+                                                        Imóvel</span>
                                                     <div class="row h-100 justify-content-center align-items-center">
                                                         <img th:src="@{/img/grafico a.png}" width="25%">
-                                                     </div>
+                                                    </div>
 
+
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
-                                  
+                                </div>
+                                <div class="col-12 order-1 order-md-2">
+
+
+
+
+
+
+                                    <ul class="list-unstyled">
+
+                                    </ul>
+
+                                    <div class="text-center mt-5 mb-3">
+
+
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 order-1 order-md-2">
-                               
-
-
-                              
-
-                               
-                                <ul class="list-unstyled">
-
-                                </ul>
-
-                                <div class="text-center mt-5 mb-3">
-
-
-                                </div>
+                            <div class="row h-100 justify-content-center align-items-center">
+                                <h4 th:text="'+ '+${vendido} + '  vendas'"></h4>
                             </div>
+
+
+
                         </div>
-                     <div class="row h-100 justify-content-center align-items-center">
-                        <h4 th:text="'+ '+${vendido} + '  vendas'"></h4>
-                     </div>
-                            
-                        
-                      
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
+
                 </div>
-                <!-- /.card -->
-                
             </div>
-        </div>
 
     </main>
 
@@ -138,7 +144,61 @@
                 $('[data-toggle="popover"]').popover()
             })
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            //Configurações do ChartsJS
+            var cativos = [[${ ativos }]];
+            var cinativos = [[${ inativos }]];
+            var caguardando_contato = [[${ aguardando_contato }]];
+            var cem_simulacao = [[${ em_simulacao }]];
+            var cnegado = [[${ negado }]];
+            var cem_aprovacao = [[${ em_aprovacao }]];
+            var csimulacao_pronta = [[${ simulacao_pronta }]];
+            var cinativos = [[${ inativos }]];
+            var cinativos = [[${ inativos }]];
+
+            var ctx1 = document.getElementById("chart-ativos-inativos");
+            
+
+            /* CONFIGS CHART ATIVOS E INATIVOS */
+            const labelsAtivosInativos = [
+                'Ativos',
+                'Inativos',
+
+            ];
+            const dataAtivosInativos = {
+                labels: labelsAtivosInativos,
+                datasets: [{
+                    label: 'Ativos e Inativos',
+                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(239, 00, 132)'],
+
+                    data: [cativos, cinativos],
+                }]
+            };
+            const configAtivosInativos = {
+                type: 'pie',
+                data: dataAtivosInativos,
+                options: {
+                    maintainAspectRatio: true,
+
+                }
+            };
+
+
+            var chartGraph = new Chart(ctx1, configAtivosInativos);
+
+
+
+            
+        </script>
+
     </th:block>
+
+
+
+
+
 </body>
 
 </html>
