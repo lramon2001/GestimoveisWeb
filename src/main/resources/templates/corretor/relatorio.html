@@ -25,12 +25,11 @@
                                     <div class="col-12 col-sm-12">
                                         <div class="info-box bg-light">
                                             <div class="info-box-content">
-                                                <span class="info-box-text text-center text-muted">Valor do
-                                                    Imóvel</span>
+                                               
                                                 <div class="row h-100 justify-content-center align-items-center">
-                                                    <div class="col-12 col-sm-4">
-                                                        PR
-                                                        <canvas id="chart-ativos-inativos"></canvas>
+                                                    <div class="col-12 col-sm-5">
+                                                        
+                                                        <canvas id="chart-ativos-inativos" class="row"></canvas>
 
                                                     </div>
 
@@ -76,13 +75,12 @@
                                     <div class="col-12 col-sm-12">
                                         <div class="info-box bg-light">
                                             <div class="info-box-content">
-                                                <span class="info-box-text text-center text-muted">Valor do
-                                                    Imóvel</span>
+                                               
                                                 <div class="row h-100 justify-content-center align-items-center">
-                                                    <div class="col-12 col-sm-4">
+                                                    <div class="col-12 col-sm-6">
 
                                                         <!-- SEGUNDO GRAFICO -->
-                                                        <canvas id="chart-status"></canvas>
+                                                        <canvas id="chart-status" class="row"></canvas>
 
                                                     </div>
 
@@ -131,10 +129,14 @@
                                         <div class="col-12 col-sm-12">
                                             <div class="info-box bg-light">
                                                 <div class="info-box-content">
-                                                    <span class="info-box-text text-center text-muted">Valor do
-                                                        Imóvel</span>
+                                                    
                                                     <div class="row h-100 justify-content-center align-items-center">
-                                                        <img th:src="@{/img/grafico a.png}" width="25%">
+                                                        <div class="col-12 col-sm-5">
+
+                                                            <!-- SEGUNDO GRAFICO -->
+                                                            <canvas id="chart-imoveis" class="row"></canvas>
+    
+                                                        </div>
                                                     </div>
 
 
@@ -206,7 +208,7 @@
                 labels: labelsAtivosInativos,
                 datasets: [{
                     label: 'Ativos e Inativos',
-                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(239, 00, 132)'],
+                    backgroundColor: ['rgb(0,227,150)', 'rgb(0,143,251)'],
 
                     data: [cativos, cinativos],
                 }]
@@ -215,7 +217,7 @@
                 type: 'pie',
                 data: dataAtivosInativos,
                 options: {
-                    maintainAspectRatio: true,
+                    responsive:true,
 
                 }
             };
@@ -244,7 +246,7 @@
 
             var ctx2 = document.getElementById("chart-status");
 
-            /* CONFIGS CHART ATIVOS E INATIVOS */
+            /* CONFIGS CHART STATUS CLIENTE */
             const labelsStatus = [
                 'Aguardando Contato',
                 'Em Simulação',
@@ -262,7 +264,7 @@
                 labels: labelsStatus,
                 datasets: [{
                     label: 'Teste',
-                    backgroundColor: ['rgb(255, 99, 0)', 'rgb(239, 00, 90)','rgb(239, 00, 90)','rgb(239, 00, 90)','rgb(239, 00, 90)','rgb(239, 00, 90)',,'rgb(239, 00, 90)',,'rgb(239, 00, 90)'],
+                    backgroundColor: ['rgb(0,143,251)', 'rgb(119,93,208)','rgb(255,255,0)','rgb(254,176,25)','rgb(0,227,150)','rgb(210,105,30)','rgb(239, 00, 90)', 'rgb(250,128,114)'],
 
                     data: [caguardando_contato, cem_simulacao, cnegado,cem_aprovacao,csimulacao_pronta,caprovado,csem_simulacao,cvenda_concluida],
                 }]
@@ -271,7 +273,7 @@
                 type: 'pie',
                 data: dataStatus,
                 options: {
-                    maintainAspectRatio: true,
+                    responsive:true,
 
                 }
             };
@@ -279,10 +281,49 @@
             var chartGraph = new Chart(ctx2, configStatus);
         </script>
 
+<script>
+    var cdisponivel = [[${ disponivel }]];
+    var ccindisponivel = [[${ indisponivel }]];
+    var cvendido = [[${ vendido }]];
+    
+
+
+    var ctx3 = document.getElementById("chart-imoveis");
+    
+
+
+    /* CONFIGS CHART IMOVEIS */
+    const labelsImoveis = [
+        'Disponível',
+        'Indisponível',
+        'Vendido',
+
+    ];
+    const dataImoveis = {
+        labels: labelsImoveis,
+        datasets: [{
+            label: 'Status dos Imóveis',
+            backgroundColor: ['rgb(254,176,25)', 'rgb(0,227,150)', 'rgb(0,143,251)'],
+
+            data: [cdisponivel,ccindisponivel, cvendido],
+        }]
+    };
+    const configImoveis = {
+        type: 'pie',
+        data: dataImoveis,
+        options: {
+            responsive:true,
+        }
+    };
+
+    var chartGraph = new Chart(ctx3, configImoveis);
+    
+
+</script>
     </th:block>
 
 
-    <!-- EIRO GRAFICO -->
+
 
 
 
