@@ -18,7 +18,8 @@ import br.com.gestimoveis.gprojetos.model.StatusImovel;
 import br.com.gestimoveis.gprojetos.repositorios.ClienteRepositorio;
 import br.com.gestimoveis.gprojetos.repositorios.CorretorRepositorio;
 import br.com.gestimoveis.gprojetos.repositorios.EmpreendimentoRepositorio;
-import br.com.gestimoveis.gprojetos.utils.SenhaUtils;
+import br.com.gestimoveis.gprojetos.servicos.CorretorServico;
+
 
 @Controller
 @RequestMapping("/corretores")
@@ -32,6 +33,9 @@ public class CorretorController {
 
     @Autowired
     private EmpreendimentoRepositorio empreendimentoRepositorio;
+
+    @Autowired 
+    private CorretorServico  corretorServico;
 
     @GetMapping
     public ModelAndView home() {
@@ -63,7 +67,7 @@ public class CorretorController {
         
         ModelAndView modelAndView = new ModelAndView("corretor/formulario");
         modelAndView.addObject("usuarios", usuarios);
-        modelAndView.addObject("corretor", corretorRepositorio.findById(id).get());
+        modelAndView.addObject("corretor", corretorServico.buscaPorId(id));
       
 
 
@@ -73,20 +77,17 @@ public class CorretorController {
     @PostMapping("/cadastrar")
     public String cadastrar(Corretor corretor) {
 
-        String senhaCriptografada = SenhaUtils.encode(corretor.getSenha()); 
-
-        corretor.setSenha(senhaCriptografada);
-        corretorRepositorio.save(corretor);
+        corretorServico.cadastrar(corretor);
+     
 
         return "redirect:/corretores";
     }
 
     @PostMapping("/{id}/editar")
     public String editar(Corretor corretor, @PathVariable Long id){
-        String senhaAtual = corretorRepositorio.findById(id).get().getSenha();
-        corretor.setSenha(senhaAtual);
-
-        corretorRepositorio.save(corretor);
+        
+        corretorServico.atualizar(corretor, id);
+       
 
         return "redirect:/corretores";
 
@@ -94,7 +95,7 @@ public class CorretorController {
 
     @GetMapping("/{id}/excluir")
     public String excluir(@PathVariable Long id) {
-        corretorRepositorio.deleteById(id);
+        corretorServico.excluirPorId(id);
 
         return "redirect:/corretores";
     }
@@ -103,7 +104,7 @@ public class CorretorController {
     public ModelAndView detalhes (@PathVariable Long id){
         ModelAndView modelAndView = new ModelAndView("corretor/detalhes");
 
-        modelAndView.addObject("corretor", corretorRepositorio.findById(id).get());
+        modelAndView.addObject("corretor", corretorServico.buscaPorId(id));
 
         return modelAndView;
     }
